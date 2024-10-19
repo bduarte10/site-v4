@@ -4,9 +4,6 @@
 
 1. Clone this repositoy:
 
-```bash
-git clone https://github.com/manycontent/website-v4.git
-```
 
 2. Go into project
 
