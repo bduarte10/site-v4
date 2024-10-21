@@ -13,25 +13,25 @@ const benefitList: BenefitsProps[] = [
     icon: "Blocks",
     title: "Construir Confiança na Marca",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Fortaleça a confiança na sua marca com conteúdos personalizados que refletem seu tom de voz e identidade visual. Garanta consistência em todas as contas de forma simples e eficiente.",
   },
   {
     icon: "LineChart",
     title: "Mais Leads",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+      "Gere mais leads com conteúdos estratégicos e segmentados, criados para atrair seu público ideal. Deixe nossa IA otimizar seus resultados e aumentar seu alcance.",
   },
   {
     icon: "Wallet",
     title: "Maior Conversão",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+      "Aumente suas conversões com conteúdos relevantes e personalizados, criados para engajar e direcionar seu público. Nossa IA ajusta cada detalhe para maximizar seus resultados.",
   },
   {
     icon: "Sparkle",
     title: "Testar Ideias de Marketing",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Teste novas ideias de marketing facilmente com conteúdos gerados por IA, ajustados ao seu público. Veja o que funciona melhor e otimize suas campanhas com dados precisos de desempenho",
   },
 ];
 
@@ -40,17 +40,17 @@ export const BenefitsSection = () => {
     <section id="benefits" className="container py-24 sm:py-32">
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
-          <h2 className="text-lg text-primary mb-2 tracking-wider">
+          <h2 className="text-lg font-semibold mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
             Benefícios
           </h2>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Seu Atalho para o Sucesso
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-headline">
+            Crie conteúdos de acordo com a sua audiência
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non
-            ducimus reprehenderit architecto rerum similique facere odit
-            deleniti necessitatibus quo quae.
+            95% milhões de conteúdos são postados diariamente nas redes sociais
+            e apenas 0.7% tem bons resultados. A Manycontent pode te ajudar a
+            entrar nesse valioso grupo.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export const BenefitsSection = () => {
           {benefitList.map(({ icon, title, description }, index) => (
             <Card
               key={title}
-              className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number"
+              className="bg-gradient-to-r from-primary/20 to-secondary/15 dark:bg-card hover:from-transparent hover:to-transparent group/number transition-all p-3 lg:p-0 xl:p-3"
             >
               <CardHeader>
                 <div className="flex justify-between">
@@ -66,9 +66,9 @@ export const BenefitsSection = () => {
                     name={icon as keyof typeof icons}
                     size={32}
                     color="hsl(var(--primary))"
-                    className="mb-6 text-primary"
+                    className="mb-6"
                   />
-                  <span className="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
+                  <span className="text-5xl text-muted-foreground/35 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
                     0{index + 1}
                   </span>
                 </div>

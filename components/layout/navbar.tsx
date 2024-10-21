@@ -22,6 +22,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "./toogle-theme";
+import { LogIn } from "lucide-react";
 
 interface RouteProps {
   href: string;
@@ -35,48 +36,51 @@ interface FeatureProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "#features",
+    label: "Funcionalidades",
   },
   {
-    href: "#team",
-    label: "Team",
+    href: "#pricing",
+    label: "Planos",
   },
   {
     href: "#contact",
-    label: "Contact",
-  },
-  {
-    href: "#faq",
-    label: "FAQ",
+    label: "contato",
   },
 ];
 
 const featureList: FeatureProps[] = [
   {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    title: "Cinteúdos personalizados",
+    description:
+      "A IA da Manycontent cria conteúdos personalizados para otimizar sua presença nas redes sociais.",
   },
   {
-    title: "Build Trust",
+    title: "Agendamento Automático",
     description:
-      "Leverages social proof elements to establish trust and credibility.",
+      "Usamos IA para agendar automaticamente seus conteúdos com um clique.",
   },
   {
-    title: "Capture Leads",
+    title: "Relatórios",
     description:
-      "Make your lead capture form visually appealing and strategically.",
+      " Com a Manycontent, você terá acesso a informações detalhadas sobre como seu perfil.",
   },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
-      <Link href="/" className="font-bold text-lg flex items-center">
-        <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-        Manycontent
+    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[80%] lg:max-w-screen-xl top-5 mx-auto sticky border border-tertiary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
+      <Link href={"#/"}>
+        <Image
+          src={"/logoMarca.svg"}
+          width={190}
+          height={33}
+          alt="Logo marca da manycontent"
+          className="ml-4"
+        />
       </Link>
+
       {/* <!-- Mobile --> */}
       <div className="flex items-center lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -94,9 +98,13 @@ export const Navbar = () => {
             <div>
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
-                    <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-                    Shadcn
+                  <Link href={"#/"}>
+                    <Image
+                      src={"/logoMarca.svg"}
+                      width={190}
+                      height={33}
+                      alt="Logo marca da manycontent"
+                    />
                   </Link>
                 </SheetTitle>
               </SheetHeader>
@@ -118,8 +126,38 @@ export const Navbar = () => {
 
             <SheetFooter className="flex-col sm:flex-col justify-start items-start">
               <Separator className="mb-2" />
-
-              <ToggleTheme />
+              <div className="flex px-4 mt-4">
+                <Button
+                  asChild
+                  size="sm"
+                  variant={"secondary"}
+                  aria-label="View on GitHub"
+                >
+                  <Link
+                    aria-label="View on GitHub"
+                    href="https://github.com/nobruf/shadcn-landing-page.git"
+                    target="_blank"
+                  >
+                    {/* <Github className="size-5" /> */}
+                    <LogIn className="text-secondary" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="sm"
+                  aria-label="View on GitHub"
+                  className="mr-4 ml-2"
+                >
+                  <Link
+                    aria-label="View on GitHub"
+                    href="https://github.com/nobruf/shadcn-landing-page.git"
+                    target="_blank"
+                  >
+                    {/* <Github className="size-5" /> */}
+                    Assinar agora
+                  </Link>
+                </Button>
+              </div>
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -129,11 +167,11 @@ export const Navbar = () => {
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-card text-base">
-              Features
+            <NavigationMenuTrigger className="bg-tertiary text-base mr-2">
+              Benefícios
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="grid w-[600px] grid-cols-2 gap-5 p-4">
+              <div className="grid w-[800px] grid-cols-2 gap-5 p-4">
                 <Image
                   src="/demo-img.jpg"
                   alt="RadixLogo"
@@ -163,7 +201,10 @@ export const Navbar = () => {
           <NavigationMenuItem>
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
+                <Link
+                  href={href}
+                  className="text-base p-2 rounded-md hover:bg-tertiary"
+                >
                   {label}
                 </Link>
               </NavigationMenuLink>
@@ -173,15 +214,34 @@ export const Navbar = () => {
       </NavigationMenu>
 
       <div className="hidden lg:flex">
-        <ToggleTheme />
-
-        <Button asChild size="sm" variant="ghost" aria-label="View on GitHub">
+        <Button
+          asChild
+          size="sm"
+          variant={"secondary"}
+          aria-label="View on GitHub"
+        >
           <Link
             aria-label="View on GitHub"
             href="https://github.com/nobruf/shadcn-landing-page.git"
             target="_blank"
           >
-            <Github className="size-5" />
+            {/* <Github className="size-5" /> */}
+            <LogIn className="text-secondary" />
+          </Link>
+        </Button>
+        <Button
+          asChild
+          size="sm"
+          aria-label="View on GitHub"
+          className="mr-4 ml-2"
+        >
+          <Link
+            aria-label="View on GitHub"
+            href="https://github.com/nobruf/shadcn-landing-page.git"
+            target="_blank"
+          >
+            {/* <Github className="size-5" /> */}
+            Assinar agora
           </Link>
         </Button>
       </div>

@@ -16,22 +16,23 @@ export const HeroSection = () => {
             <span className="mr-2 text-primary">
               <Badge>Novo</Badge>
             </span>
-            <span> Design está disponível agora! </span>
+            <span>
+              14.000 contas com mais de 83 milhões de conteúdos aprovados.
+            </span>
           </Badge>
 
           <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
             <h1>
-              Experimente a
-              <span className="text-transparent px-2 bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">
-                Shadcn
+              Utilize a
+              <span className="text-transparent px-2 bg-gradient-to-r from-primary to-secondary bg-clip-text">
+                manycontent
               </span>
-              landing page
+              para alavancar sua presença digital
             </h1>
           </div>
 
           <p className="max-w-screen-sm mx-auto text-xl text-muted-foreground">
-            {`Somos mais do que apenas uma ferramenta, somos uma comunidade de
-            criadores apaixonados. Tenha acesso a recursos exclusivos, tutoriais e suporte.`}
+            {`A IA que descobre o que funciona para as suas Redes Sociais, cria seus conteúdos e agenda seus posts de forma automática.`}
           </p>
 
           <div className="space-y-4 md:space-y-0 md:space-x-4">

@@ -4,68 +4,79 @@ import { Icon } from "@/components/ui/icon";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
 import { icons } from "lucide-react";
+import Image from "next/image";
 interface sponsorsProps {
-  icon: string;
-  name: string;
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
 }
 
 const sponsors: sponsorsProps[] = [
   {
-    icon: "Crown",
-    name: "Acmebrand",
+    src: "/vivo.png",
+    width: 89,
+    height: 33,
+    alt: "vivo",
   },
   {
-    icon: "Vegan",
-    name: "Acmelogo",
+    src: "/twitter.png",
+    width: 60,
+    height: 45,
+    alt: "twitter",
   },
   {
-    icon: "Ghost",
-    name: "Acmesponsor",
+    src: "/sebrae.png",
+    width: 82,
+    height: 43,
+    alt: "sebrae",
   },
   {
-    icon: "Puzzle",
-    name: "Acmeipsum",
+    src: "/sap.png",
+    width: 54,
+    height: 27,
+    alt: "sap",
   },
   {
-    icon: "Squirrel",
-    name: "Acme",
+    src: "/nvidia.png",
+    width: 143,
+    height: 25,
+    alt: "nvidia",
   },
   {
-    icon: "Cookie",
-    name: "Accmee",
+    src: "/meta.png",
+    width: 74,
+    height: 44,
+    alt: "meta",
   },
   {
-    icon: "Drama",
-    name: "Acmetech",
+    src: "/microsoft.png",
+    width: 120,
+    height: 25,
+    alt: "microsoft",
   },
 ];
 
 export const SponsorsSection = () => {
   return (
-    <section id="sponsors" className="max-w-[75%] mx-auto pb-24 sm:pb-32">
-      <h2 className="text-lg md:text-xl text-center mb-6">
-        Our Platinum Sponsors
+    <section id="sponsors" className="max-w-[75%] mx-auto py-14">
+      <h2 className="text-lg md:text-3xl text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-center mb-10">
+        Nossos parceiros
       </h2>
 
       <div className="mx-auto">
         <Marquee
-          className="gap-[3rem]"
+          className="gap-[5rem]"
           fade
-          innerClassName="gap-[3rem]"
+          innerClassName="gap-[5rem]"
           pauseOnHover
         >
-          {sponsors.map(({ icon, name }) => (
+          {sponsors.map(({ src, width, height, alt }) => (
             <div
-              key={name}
+              key={alt}
               className="flex items-center text-xl md:text-2xl font-medium"
             >
-              <Icon
-                name={icon as keyof typeof icons}
-                size={32}
-                color="white"
-                className="mr-2"
-              />
-              {name}
+              <Image src={src} width={width} height={height} alt={alt} />
             </div>
           ))}
         </Marquee>

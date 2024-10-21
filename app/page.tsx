@@ -47,13 +47,10 @@ export default function Home() {
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />
-      <BentoGridDemo />
-      <TabsDemo />
       <FeaturesSection />
-      <ServicesSection />
+      <TabsDemo />
+      <BentoGridDemo />
       <TestimonialSection />
-      <TeamSection />
-      <CommunitySection />
       <PricingSection />
       <ContactSection />
       <FAQSection />

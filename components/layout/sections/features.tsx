@@ -11,60 +11,63 @@ interface FeaturesProps {
 const featureList: FeaturesProps[] = [
   {
     icon: "TabletSmartphone",
-    title: "Mobile Friendly",
+    title: "Conteúdos personalizados",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+      "Na Manycontent, a nossa IA produz imagens, textos e hashtags especiais para você, e criados para resolver as dores da sua audiência. ",
   },
   {
     icon: "BadgeCheck",
-    title: "Social Proof",
+    title: "Agendamento",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Usamos inteligência artificial para agendar automaticamente seus conteúdos com apenas um clique, caso você queira.",
   },
   {
     icon: "Goal",
-    title: "Targeted Content",
+    title: "Relatórios",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+      "Oferecemos insights detalhados sobre seu desempenho e o de seus concorrentes, ajudando a melhorar sua estratégia e superar a concorrência.",
   },
   {
     icon: "PictureInPicture",
-    title: "Strong Visuals",
+    title: "Biblioteca de Conteúdos",
     description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "A Manycontent oferece conteúdos prontos com imagens, textos e hashtags relevantes para diversos nichos, economizando seu tempo. Basta aprovar e deixar a IA agendar, ampliando sua presença online.",
   },
   {
     icon: "MousePointerClick",
-    title: "Clear CTA",
+    title: "Editor de imagem/vídeo",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "Oferecemos um super editor de imagem e vídeo, incrivelmente fácil de usar, para você dar o seu toque final sempre que quiser.",
   },
   {
     icon: "Newspaper",
-    title: "Clear Headline",
+    title: "Manybot",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "Imagine poder criar conteúdo de blog com até 2 mil palavras, copy para anúncios, scripts de vídeo, e-mails de marketing, tudo com o toque mágico do Manybot.",
   },
 ];
 
 export const FeaturesSection = () => {
   return (
     <section id="features" className="container py-24 sm:py-32">
-      <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Features
+      <h2 className="text-lg text-center mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+        Funcionalidades
       </h2>
 
-      <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        What Makes Us Different
+      <h2 className="text-3xl md:text-4xl text-center font-bold mb-4 text-headline">
+        Quais funcionalidades a{" "}
+        <span className="text-transparent px-1 bg-gradient-to-r from-primary to-secondary bg-clip-text">
+          manycontent
+        </span>{" "}
+        oferece ?
       </h2>
 
-      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-        fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-        facere tenetur.
+      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8 xl:w-3/5">
+        As nossas funcionalidades foram pensadas e desenvolvidas para que você
+        tenha o melhor resultado na busca pelo crescimento digital
       </h3>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 xl:gap-4">
         {featureList.map(({ icon, title, description }) => (
           <div key={title}>
             <Card className="h-full bg-background border-0 shadow-none">

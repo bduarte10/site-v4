@@ -62,22 +62,23 @@ export const ContactSection = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <div className="mb-4">
-            <h2 className="text-lg text-primary mb-2 tracking-wider">
-              Contact
+            <h2 className="text-lg text-left mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+              contato
             </h2>
 
-            <h2 className="text-3xl md:text-4xl font-bold">Connect With Us</h2>
+            <h2 className="text-3xl md:text-4xl text-left font-bold mb-4 text-headline">
+              Entre em contato
+            </h2>
           </div>
-          <p className="mb-8 text-muted-foreground lg:w-5/6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            ipsam sint enim exercitationem ex autem corrupti quas tenetur
+          <p className="text-xl text-muted-foreground mb-8">
+            Nossa equipe de suporte está pronta para te atender
           </p>
 
           <div className="flex flex-col gap-4">
             <div>
               <div className="flex gap-2 mb-1">
                 <Building2 />
-                <div className="font-bold">Find us</div>
+                <div className="font-bold">Localização</div>
               </div>
 
               <div>742 Evergreen Terrace, Springfield, IL 62704</div>
@@ -86,7 +87,7 @@ export const ContactSection = () => {
             <div>
               <div className="flex gap-2 mb-1">
                 <Phone />
-                <div className="font-bold">Call us</div>
+                <div className="font-bold">Telefone</div>
               </div>
 
               <div>+1 (619) 123-4567</div>
@@ -95,7 +96,7 @@ export const ContactSection = () => {
             <div>
               <div className="flex gap-2 mb-1">
                 <Mail />
-                <div className="font-bold">Mail US</div>
+                <div className="font-bold">Email</div>
               </div>
 
               <div>leomirandadev@gmail.com</div>
@@ -104,7 +105,7 @@ export const ContactSection = () => {
             <div>
               <div className="flex gap-2">
                 <Clock />
-                <div className="font-bold">Visit us</div>
+                <div className="font-bold">Horário de funcionamento</div>
               </div>
 
               <div>
@@ -115,7 +116,7 @@ export const ContactSection = () => {
           </div>
         </div>
 
-        <Card className="bg-muted/60 dark:bg-card">
+        <Card className="bg-tertiary/25 shadow-lg">
           <CardHeader className="text-primary text-2xl"> </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -129,7 +130,7 @@ export const ContactSection = () => {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>Nome</FormLabel>
                         <FormControl>
                           <Input placeholder="Leopoldo" {...field} />
                         </FormControl>
@@ -142,7 +143,7 @@ export const ContactSection = () => {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel>Sobrenome</FormLabel>
                         <FormControl>
                           <Input placeholder="Miranda" {...field} />
                         </FormControl>
@@ -178,7 +179,7 @@ export const ContactSection = () => {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
+                        <FormLabel>Assunto</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
@@ -216,11 +217,11 @@ export const ContactSection = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Mensagem</FormLabel>
                         <FormControl>
                           <Textarea
                             rows={5}
-                            placeholder="Your message..."
+                            placeholder="Escreva algo..."
                             className="resize-none"
                             {...field}
                           />
@@ -232,7 +233,7 @@ export const ContactSection = () => {
                   />
                 </div>
 
-                <Button className="mt-4">Send message</Button>
+                <Button className="mt-4">Enviar</Button>
               </form>
             </Form>
           </CardContent>

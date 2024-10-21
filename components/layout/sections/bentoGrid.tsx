@@ -9,69 +9,109 @@ import {
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
+import { ArrowUpRight } from "lucide-react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import Image from "next/image";
 
 export function BentoGridDemo() {
   return (
-    <BentoGrid className="container py-24 sm:py-32 mx-auto">
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          icon={item.icon}
-          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-        />
-      ))}
-    </BentoGrid>
+    <div className="py-24 sm:py-32">
+      <div className="mx-auto container mb-6 max-w-7xl">
+        <h2 className="text-lg text-left mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+          Artigos e notícias
+        </h2>
+
+        <div className="sm:flex sm:justify-between sm:flex-row">
+          <h2 className="text-3xl md:text-4xl text-left font-bold text-headline">
+            Confira o blog da{" "}
+            <span className="text-transparent px-1 bg-gradient-to-r from-primary to-secondary bg-clip-text">
+              manycontent
+            </span>{" "}
+          </h2>
+          <div className="flex items-center gap-3 mt-1">
+            <h2 className="text-lg text-left mt-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold w-24">
+              Veja mais
+            </h2>
+            <ArrowUpRight className="mt-2 text-secondary/80" size={32} />
+          </div>
+        </div>
+      </div>
+
+      <BentoGrid className="container mx-auto">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={item.title}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon}
+            className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}
+          />
+        ))}
+      </BentoGrid>
+    </div>
   );
 }
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+const Skeleton = ({
+  src,
+  width,
+  height,
+  alt,
+}: {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}) => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl">
+    <Image
+      src={src}
+      width={width}
+      height={height}
+      alt={alt}
+      className="w-full"
+    />
+    .
+  </div>
 );
 const items = [
   {
-    title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
-    header: <Skeleton />,
+    title: "O que saber sobre marketing ?",
+    description: "Aprenda as conceitos básicos sobre marketing na era digital.",
+    header: (
+      <Skeleton
+        src="/marketingConteudo.png"
+        width={728}
+        height={538}
+        alt="marketing de conteúdo imagem"
+      />
+    ),
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
-    header: <Skeleton />,
+    title: "A revolução digital",
+    description: "Como as redes sociais impactam as nossas vidas.",
+    header: (
+      <Skeleton
+        src="/podcast1.png"
+        width={728}
+        height={538}
+        alt="marketing de conteúdo imagem"
+      />
+    ),
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
-    header: <Skeleton />,
+    title: "A arte do design",
+    description: "Descubra a beleza de um design inteligente e funcional",
+    header: (
+      <Skeleton
+        src="/podcast2.png"
+        width={728}
+        height={538}
+        alt="marketing de conteúdo imagem"
+      />
+    ),
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
-    header: <Skeleton />,
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Joy of Creation",
-    description: "Experience the thrill of bringing ideas to life.",
-    header: <Skeleton />,
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Spirit of Adventure",
-    description: "Embark on exciting journeys and thrilling discoveries.",
-    header: <Skeleton />,
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
   },
 ];
