@@ -2,19 +2,18 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ContainerScrollDemo } from "@/components/ui/caontainerScrollDemo";
-import { MacbookScrollDemo } from "@/components/ui/macbookScrollDemo";
+import { BackgroundLines } from "@/components/ui/background-lines";
 import { Motion } from "@/components/ui/motion";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import Link from "next/link";
 
 export const HeroSection = () => {
   const { theme } = useTheme();
   return (
     <section className="container w-full">
-      <div className="grid place-items-center lg:max-w-screen-2xl gap-8 mx-auto py-20 md:py-36">
-        <div className="text-center space-y-8">
+      <div className="grid place-items-center lg:max-w-screen-2xl gap-8 mx-auto py-20 md:py-28">
+        <BackgroundLines className="text-center space-y-8">
           <Motion
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +34,6 @@ export const HeroSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ ease: "easeOut", duration: 0.8, delay: 0.3 }}
           >
-            {" "}
             <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
               <h1>
                 Utilize a
@@ -82,7 +80,7 @@ export const HeroSection = () => {
               </Button>
             </div>
           </Motion>
-        </div>
+        </BackgroundLines>
 
         <div className="relative group mt-14 w-full">
           <Motion
@@ -90,22 +88,9 @@ export const HeroSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ ease: "easeOut", duration: 0.8, delay: 1.1 }}
           >
-            <div className="absolute top-2 lg:top-10 left-1/2 transform -translate-x-1/2 w-[94%] mx-auto h-24 lg:h-96 bg-primary/60 rounded-full blur-3xl"></div>
+            <div className="absolute top-2 lg:top-12 left-1/2 transform -translate-x-1/2 w-[90%] mx-auto h-24 lg:h-96 bg-primary/60 rounded-full blur-3xl"></div>
             <ContainerScrollDemo />
-            {/* <Image
-              width={1200}
-              height={1200}
-              className="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-secondary  border-t-primary/30"
-              src={
-                theme === "light"
-                  ? "/hero-image-light.jpeg"
-                  : "/hero-image-dark.jpeg"
-              }
-              alt="dashboard"
-            /> */}
           </Motion>
-
-          {/* <div className="absolute bottom-0 left-0 w-full h-20 md:h-28 bg-gradient-to-b from-background/0 via-background/50 to-background rounded-lg"></div> */}
         </div>
       </div>
     </section>
