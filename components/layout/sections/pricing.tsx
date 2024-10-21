@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Motion } from "@/components/ui/motion";
 import { Check } from "lucide-react";
 
 enum PopularPlan {
@@ -82,70 +83,83 @@ const plans: PlanProps[] = [
 export const PricingSection = () => {
   return (
     <section id="pricing" className="container py-24 sm:py-32">
-      <h2 className="text-lg mb-2 text-center tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
-        Planos
-      </h2>
+      <Motion
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-lg mb-2 text-center tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+          Planos
+        </h2>
 
-      <h2 className="text-3xl md:text-4xl text-center font-bold text-headline mb-4">
-        Tenha acesso ilimitado
-      </h2>
+        <h2 className="text-3xl md:text-4xl text-center font-bold text-headline mb-4">
+          Tenha acesso ilimitado
+        </h2>
 
-      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8 xl:w-3/5">
-        Pensado para que você tenha o melhor custo benefício do mercado.
-      </h3>
+        <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8 xl:w-3/5">
+          Pensado para que você tenha o melhor custo benefício do mercado.
+        </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4 mt-16">
-        {plans.map(
-          ({ title, popular, price, description, buttonText, benefitList }) => (
-            <>
-              <Card
-                key={title}
-                className={
-                  popular === PopularPlan?.YES
-                    ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
-                    : ""
-                }
-              >
-                <div className="p-3">
-                  {" "}
-                  <CardHeader>
-                    <CardTitle className="pb-2">{title}</CardTitle>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4 mt-16">
+          {plans.map(
+            ({
+              title,
+              popular,
+              price,
+              description,
+              buttonText,
+              benefitList,
+            }) => (
+              <>
+                <Card
+                  key={title}
+                  className={
+                    popular === PopularPlan?.YES
+                      ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
+                      : ""
+                  }
+                >
+                  <div className="p-3">
+                    {" "}
+                    <CardHeader>
+                      <CardTitle className="pb-2">{title}</CardTitle>
 
-                    <CardDescription className="pb-4">
-                      {description}
-                    </CardDescription>
+                      <CardDescription className="pb-4">
+                        {description}
+                      </CardDescription>
 
-                    <div>
-                      <span className="text-3xl font-bold">R${price}</span>
-                      <span className="text-muted-foreground"> /month</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex">
-                    <div className="space-y-4">
-                      {benefitList.map((benefit) => (
-                        <span key={benefit} className="flex">
-                          <Check className="text-primary mr-2" />
-                          <h3>{benefit}</h3>
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button
-                      variant={
-                        popular === PopularPlan?.YES ? "default" : "secondary"
-                      }
-                      className="w-full"
-                    >
-                      {buttonText}
-                    </Button>
-                  </CardFooter>
-                </div>
-              </Card>
-            </>
-          )
-        )}
-      </div>
+                      <div>
+                        <span className="text-3xl font-bold">R${price}</span>
+                        <span className="text-muted-foreground"> /month</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex">
+                      <div className="space-y-4">
+                        {benefitList.map((benefit) => (
+                          <span key={benefit} className="flex">
+                            <Check className="text-primary mr-2" />
+                            <h3>{benefit}</h3>
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button
+                        variant={
+                          popular === PopularPlan?.YES ? "default" : "secondary"
+                        }
+                        className="w-full"
+                      >
+                        {buttonText}
+                      </Button>
+                    </CardFooter>
+                  </div>
+                </Card>
+              </>
+            )
+          )}
+        </div>
+      </Motion>
     </section>
   );
 };

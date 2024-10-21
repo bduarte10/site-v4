@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Motion } from "@/components/ui/motion";
 
 interface FAQProps {
   question: string;
@@ -53,27 +54,33 @@ const FAQList: FAQProps[] = [
 export const FAQSection = () => {
   return (
     <section id="faq" className="container  py-24 sm:py-32">
-      <div className="text-center mb-8">
-        <h2 className="text-lg mb-2 text-center tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
-          FAQS
-        </h2>
+      <Motion
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="text-center mb-8">
+          <h2 className="text-lg mb-2 text-center tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+            FAQS
+          </h2>
 
-        <h2 className="text-3xl md:text-4xl text-center font-bold text-headline mb-4">
-          Perguntas frequentes
-        </h2>
-      </div>
+          <h2 className="text-3xl md:text-4xl text-center font-bold text-headline mb-4">
+            Perguntas frequentes
+          </h2>
+        </div>
 
-      <Accordion type="single" collapsible className="AccordionRoot">
-        {FAQList.map(({ question, answer, value }) => (
-          <AccordionItem key={value} value={value}>
-            <AccordionTrigger className="text-left">
-              {question}
-            </AccordionTrigger>
+        <Accordion type="single" collapsible className="AccordionRoot">
+          {FAQList.map(({ question, answer, value }) => (
+            <AccordionItem key={value} value={value}>
+              <AccordionTrigger className="text-left">
+                {question}
+              </AccordionTrigger>
 
-            <AccordionContent>{answer}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+              <AccordionContent>{answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Motion>
     </section>
   );
 };

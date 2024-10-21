@@ -12,44 +12,51 @@ import {
 import { ArrowUpRight } from "lucide-react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Image from "next/image";
+import { Motion } from "@/components/ui/motion";
 
 export function BentoGridDemo() {
   return (
-    <div className="py-24 sm:py-32">
-      <div className="mx-auto container mb-6 max-w-7xl">
-        <h2 className="text-lg text-left mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
-          Artigos e notícias
-        </h2>
-
-        <div className="sm:flex sm:justify-between sm:flex-row">
-          <h2 className="text-3xl md:text-4xl text-left font-bold text-headline">
-            Confira o blog da{" "}
-            <span className="text-transparent px-1 bg-gradient-to-r from-primary to-secondary bg-clip-text">
-              manycontent
-            </span>{" "}
+    <Motion
+      initial={{ opacity: 0, y: -40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="py-24 sm:py-32">
+        <div className="mx-auto container mb-6 max-w-7xl">
+          <h2 className="text-lg text-left mb-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold">
+            Artigos e notícias
           </h2>
-          <div className="flex items-center gap-3 mt-1">
-            <h2 className="text-lg text-left mt-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold w-24">
-              Veja mais
+
+          <div className="sm:flex sm:justify-between sm:flex-row">
+            <h2 className="text-3xl md:text-4xl text-left font-bold text-headline">
+              Confira o blog da{" "}
+              <span className="text-transparent px-1 bg-gradient-to-r from-primary to-secondary bg-clip-text">
+                manycontent
+              </span>{" "}
             </h2>
-            <ArrowUpRight className="mt-2 text-secondary/80" size={32} />
+            <div className="flex items-center gap-3 mt-1">
+              <h2 className="text-lg text-left mt-2 tracking-wider text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold w-24">
+                Veja mais
+              </h2>
+              <ArrowUpRight className="mt-2 text-secondary/80" size={32} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <BentoGrid className="container mx-auto">
-        {items.map((item, i) => (
-          <BentoGridItem
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            header={item.header}
-            icon={item.icon}
-            className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}
-          />
-        ))}
-      </BentoGrid>
-    </div>
+        <BentoGrid className="container mx-auto">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              icon={item.icon}
+              className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}
+            />
+          ))}
+        </BentoGrid>
+      </div>
+    </Motion>
   );
 }
 const Skeleton = ({

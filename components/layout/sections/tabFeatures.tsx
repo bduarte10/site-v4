@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Motion } from "@/components/ui/motion";
 import { Tabs } from "@/components/ui/tabs";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -138,9 +139,15 @@ export function TabsDemo() {
   ];
 
   return (
-    <div className="h-[50.5rem] sm:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-40">
-      <Tabs tabs={tabs} />
-    </div>
+    <Motion
+      initial={{ opacity: 0, y: -40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="h-[50.5rem] sm:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-40">
+        <Tabs tabs={tabs} />
+      </div>
+    </Motion>
   );
 }
 

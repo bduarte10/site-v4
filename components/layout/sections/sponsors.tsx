@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "@/components/ui/icon";
+import { Motion } from "@/components/ui/motion";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
 import { icons } from "lucide-react";
@@ -59,28 +60,34 @@ const sponsors: sponsorsProps[] = [
 
 export const SponsorsSection = () => {
   return (
-    <section id="sponsors" className="max-w-[75%] mx-auto py-14">
-      <h2 className="text-lg md:text-3xl text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-center mb-10">
-        Nossos parceiros
-      </h2>
+    <section id="sponsors" className="max-w-[75%] mx-auto pt-14 pb-24">
+      <Motion
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-lg md:text-3xl text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text font-semibold text-center mb-10">
+          Nossos parceiros
+        </h2>
 
-      <div className="mx-auto">
-        <Marquee
-          className="gap-[5rem]"
-          fade
-          innerClassName="gap-[5rem]"
-          pauseOnHover
-        >
-          {sponsors.map(({ src, width, height, alt }) => (
-            <div
-              key={alt}
-              className="flex items-center text-xl md:text-2xl font-medium"
-            >
-              <Image src={src} width={width} height={height} alt={alt} />
-            </div>
-          ))}
-        </Marquee>
-      </div>
+        <div className="mx-auto">
+          <Marquee
+            className="gap-[5rem]"
+            fade
+            innerClassName="gap-[5rem]"
+            pauseOnHover
+          >
+            {sponsors.map(({ src, width, height, alt }) => (
+              <div
+                key={alt}
+                className="flex items-center text-xl md:text-2xl font-medium"
+              >
+                <Image src={src} width={width} height={height} alt={alt} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
+      </Motion>
     </section>
   );
 };
